@@ -1,837 +1,846 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shresth Paul - Cybersecurity Professional, Linux Enthusiast, and Open-Source Contributor">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <title>Shresth Paul | Cybersecurity Professional</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #fafafa;
-            --bg-tertiary: #f5f5f5;
-            --text-primary: #1a1a1a;
-            --text-secondary: #666666;
-            --text-muted: #999999;
-            --border-color: #e0e0e0;
-            --accent-primary: #2563eb;
-            --accent-secondary: #1d4ed8;
-            --accent-success: #059669;
-            --accent-warning: #d97706;
-            --shadow: rgba(0, 0, 0, 0.06);
-            --shadow-hover: rgba(0, 0, 0, 0.12);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shresth Paul - Cybersecurity Professional, Linux Enthusiast, and Open-Source Contributor">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <title>Shresth Paul | Cybersecurity Professional</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #fafafa;
+      --bg-tertiary: #f5f5f5;
+      --text-primary: #1a1a1a;
+      --text-secondary: #666666;
+      --text-muted: #999999;
+      --border-color: #e0e0e0;
+      --accent-primary: #2563eb;
+      --accent-secondary: #1d4ed8;
+      --accent-success: #059669;
+      --accent-warning: #d97706;
+      --shadow: rgba(0, 0, 0, 0.06);
+      --shadow-hover: rgba(0, 0, 0, 0.12);
+    }
 
-        [data-theme="dark"] {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #151515;
-            --bg-tertiary: #1f1f1f;
-            --text-primary: #f5f5f5;
-            --text-secondary: #b3b3b3;
-            --text-muted: #808080;
-            --border-color: #2a2a2a;
-            --accent-primary: #3b82f6;
-            --accent-secondary: #2563eb;
-            --accent-success: #10b981;
-            --accent-warning: #f59e0b;
-            --shadow: rgba(0, 0, 0, 0.2);
-            --shadow-hover: rgba(0, 0, 0, 0.3);
-        }
+    [data-theme="dark"] {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #151515;
+      --bg-tertiary: #1f1f1f;
+      --text-primary: #f5f5f5;
+      --text-secondary: #b3b3b3;
+      --text-muted: #808080;
+      --border-color: #2a2a2a;
+      --accent-primary: #3b82f6;
+      --accent-secondary: #2563eb;
+      --accent-success: #10b981;
+      --accent-warning: #f59e0b;
+      --shadow: rgba(0, 0, 0, 0.2);
+      --shadow-hover: rgba(0, 0, 0, 0.3);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-            font-weight: 300;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      font-weight: 300;
+    }
 
-        /* Minimalist Navbar */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 0;
-        }
-        [data-theme="dark"] .navbar { background: rgba(10, 10, 10, 0.95); }
-        .navbar-brand {
-            color: var(--text-primary) !important;
-            font-weight: 600;
-            font-size: 1.1rem;
-            letter-spacing: -0.5px;
-        }
-        .nav-link {
-            color: var(--text-secondary) !important;
-            font-weight: 400;
-            margin: 0 0.75rem;
-            font-size: 0.95rem;
-            letter-spacing: -0.2px;
-        }
-        .nav-link:hover { color: var(--accent-primary) !important; }
+    /* Minimalist Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0;
+    }
+    [data-theme="dark"] .navbar { background: rgba(10, 10, 10, 0.95); }
+    .navbar-brand {
+      color: var(--text-primary) !important;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.5px;
+    }
+    .nav-link {
+      color: var(--text-secondary) !important;
+      font-weight: 400;
+      margin: 0 0.75rem;
+      font-size: 0.95rem;
+      letter-spacing: -0.2px;
+    }
+    .nav-link:hover { color: var(--accent-primary) !important; }
 
-        /* Minimalist Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: var(--bg-primary);
-            position: relative;
-        }
-        .hero-content { position: relative; z-index: 2; }
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-            letter-spacing: -2px;
-        }
-        .hero .lead {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
+    /* Minimalist Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--bg-primary);
+      position: relative;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      letter-spacing: -2px;
+    }
+    .hero .lead {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
 
-        /* Minimalist Buttons */
-        .btn-primary {
-            background: var(--text-primary);
-            border: 1px solid var(--text-primary);
-            padding: 0.8rem 2rem;
-            font-weight: 400;
-            border-radius: 0;
-            color: var(--bg-primary);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-        }
-        .btn-primary:hover {
-            background: var(--accent-primary);
-            border-color: var(--accent-primary);
-        }
+    /* Minimalist Buttons */
+    .btn-primary {
+      background: var(--text-primary);
+      border: 1px solid var(--text-primary);
+      padding: 0.8rem 2rem;
+      font-weight: 400;
+      border-radius: 0;
+      color: var(--bg-primary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    .btn-primary:hover {
+      background: var(--accent-primary);
+      border-color: var(--accent-primary);
+    }
 
-        .btn-outline-primary {
-            border-color: var(--text-primary);
-            color: var(--text-primary);
-            padding: 0.8rem 2rem;
-            font-weight: 400;
-            border-radius: 0;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-        }
-        .btn-outline-primary:hover {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-        }
+    .btn-outline-primary {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+      padding: 0.8rem 2rem;
+      font-weight: 400;
+      border-radius: 0;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    .btn-outline-primary:hover {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+    }
 
-        /* Minimalist Stats */
-        .hero-stats {
-            display: flex;
-            gap: 4rem;
-            margin-top: 4rem;
-            flex-wrap: wrap;
-        }
-        .stat {
-            text-align: left;
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 200;
-            color: var(--text-primary);
-            line-height: 1;
-        }
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 0.5rem;
-        }
+    /* Minimalist Stats */
+    .hero-stats {
+      display: flex;
+      gap: 4rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: left;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 200;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.5rem;
+    }
 
-        /* Sections */
-        section { padding: 5rem 0; }
-        .section-title {
-            font-size: 2rem;
-            font-weight: 200;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: var(--text-primary);
-            letter-spacing: -1px;
-        }
+    /* Sections */
+    section { padding: 5rem 0; }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 200;
+      text-align: center;
+      margin-bottom: 4rem;
+      color: var(--text-primary);
+      letter-spacing: -1px;
+    }
 
-        /* About Section */
-        .about-text {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            line-height: 1.7;
-        }
+    /* About Section */
+    .about-text {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-        .skill {
-            background: var(--bg-secondary);
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border-color);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            letter-spacing: 0.5px;
-        }
+    .skill {
+      background: var(--bg-secondary);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.5px;
+    }
 
-        /* Personal Contributions Cards */
-        .contribution-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
+    /* Personal Contributions Cards */
+    .contribution-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
 
-        .contribution-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px var(--shadow-hover);
-        }
+    .contribution-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--shadow-hover);
+    }
 
-        .contribution-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--accent-primary);
-        }
+    .contribution-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-primary);
+    }
 
-        .contribution-title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+    .contribution-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
 
-        .contribution-icon {
-            width: 24px;
-            height: 24px;
-            color: var(--accent-primary);
-            flex-shrink: 0;
-        }
+    .contribution-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--accent-primary);
+      flex-shrink: 0;
+    }
 
-        .contribution-status {
-            font-size: 0.75rem;
-            color: var(--accent-success);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            display: inline-block;
-            background: rgba(5, 150, 105, 0.1);
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-        }
+    .contribution-status {
+      font-size: 0.75rem;
+      color: var(--accent-success);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: inline-block;
+      background: rgba(5, 150, 105, 0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+    }
 
-        .contribution-description {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            flex-grow: 1;
-        }
+    .contribution-description {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
 
-        .contribution-tags {
-            margin-top: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
+    .contribution-tags {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
 
-        .contribution-tag {
-            background: var(--bg-tertiary);
-            color: var(--text-muted);
-            padding: 0.25rem 0.75rem;
-            font-size: 0.75rem;
-            border: 1px solid var(--border-color);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
+    .contribution-tag {
+      background: var(--bg-tertiary);
+      color: var(--text-muted);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      border: 1px solid var(--border-color);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
 
-        /* Centered Timeline */
-        .centered-timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
+    /* Centered Timeline */
+    .centered-timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
 
-        .centered-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border-color);
-            transform: translateX(-50%);
-        }
+    .centered-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border-color);
+      transform: translateX(-50%);
+    }
 
-        .timeline-item-centered {
-            position: relative;
-            width: 50%;
-            padding: 0 2rem;
-            margin-bottom: 3rem;
-        }
+    .timeline-item-centered {
+      position: relative;
+      width: 50%;
+      padding: 0 2rem;
+      margin-bottom: 3rem;
+    }
 
-        .timeline-item-centered:nth-child(odd) {
-            left: 0;
-            text-align: right;
-            padding-right: 3rem;
-        }
+    .timeline-item-centered:nth-child(odd) {
+      left: 0;
+      text-align: right;
+      padding-right: 3rem;
+    }
 
-        .timeline-item-centered:nth-child(even) {
-            left: 50%;
-            text-align: left;
-            padding-left: 3rem;
-        }
+    .timeline-item-centered:nth-child(even) {
+      left: 50%;
+      text-align: left;
+      padding-left: 3rem;
+    }
 
-        .timeline-item-centered::before {
-            content: '';
-            position: absolute;
-            top: 0.5rem;
-            width: 12px;
-            height: 12px;
-            background: var(--accent-primary);
-            border: 2px solid var(--bg-primary);
-            border-radius: 50%;
-            z-index: 2;
-        }
+    .timeline-item-centered::before {
+      content: '';
+      position: absolute;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      background: var(--accent-primary);
+      border: 2px solid var(--bg-primary);
+      border-radius: 50%;
+      z-index: 2;
+    }
 
-        .timeline-item-centered:nth-child(odd)::before {
-            right: -6px;
-        }
+    .timeline-item-centered:nth-child(odd)::before {
+      right: -6px;
+    }
 
-        .timeline-item-centered:nth-child(even)::before {
-            left: -6px;
-        }
+    .timeline-item-centered:nth-child(even)::before {
+      left: -6px;
+    }
 
-        .timeline-content {
-            background: var(--bg-secondary);
-            padding: 1.5rem;
-            border: 1px solid var(--border-color);
-            position: relative;
-        }
+    .timeline-content {
+      background: var(--bg-secondary);
+      padding: 1.5rem;
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
 
-        .timeline-content h3 {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
-        }
+    .timeline-content h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
 
-        .timeline-content span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 400;
-        }
+    .timeline-content span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
 
-        .timeline-content p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 1rem;
-            margin-bottom: 0;
-            line-height: 1.6;
-        }
+    .timeline-content p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
 
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero-stats { gap: 2rem; }
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero-stats { gap: 2rem; }
 
-            .centered-timeline::before {
-                left: 30px;
-            }
+      .centered-timeline::before {
+        left: 30px;
+      }
 
-            .timeline-item-centered {
-                width: 100%;
-                left: 0 !important;
-                text-align: left !important;
-                padding-left: 60px !important;
-                padding-right: 1rem !important;
-            }
+      .timeline-item-centered {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 60px !important;
+        padding-right: 1rem !important;
+      }
 
-            .timeline-item-centered::before {
-                left: 24px !important;
-                right: auto !important;
-            }
-        }
+      .timeline-item-centered::before {
+        left: 24px !important;
+        right: auto !important;
+      }
+    }
 
-        /* Blog and Connect sections - simplified */
-        .blog-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+    /* Blog and Connect sections - simplified */
+    .blog-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .blog-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px var(--shadow-hover);
-        }
+    .blog-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--shadow-hover);
+    }
 
-        .blog-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
-            min-height: 2.4rem;
-            display: flex;
-            align-items: flex-start;
-        }
+    .blog-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+      min-height: 2.4rem;
+      display: flex;
+      align-items: flex-start;
+    }
 
-        .blog-meta {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
+    .blog-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
 
-        .blog-description {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            min-height: 5.6rem;
-        }
+    .blog-description {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-height: 5.6rem;
+    }
 
-        .blog-actions {
-            margin-top: auto;
-            padding-top: 1rem;
-        }
+    .blog-actions {
+      margin-top: auto;
+      padding-top: 1rem;
+    }
 
-        #connect { text-align: center; }
-        .connect-text {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    #connect { text-align: center; }
+    .connect-text {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-        .social-link {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            padding: 0.75rem 1.5rem;
-            border: 1px solid var(--border-color);
-            margin: 0.5rem;
-            display: inline-block;
-            text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
+    .social-link {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--border-color);
+      margin: 0.5rem;
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
 
-        .social-link:hover {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            border-color: var(--text-primary);
-            text-decoration: none;
-        }
+    .social-link:hover {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      border-color: var(--text-primary);
+      text-decoration: none;
+    }
 
-        footer {
-            background: var(--bg-secondary);
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9rem;
-        }
-    </style>
+    footer {
+      background: var(--bg-secondary);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">SecByShresth</a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
-            <i class="fas fa-bars" style="color: var(--text-primary);"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navCollapse">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="#connect">Connect</a></li>
-            </ul>
-        </div>
+  <div class="container">
+    <a class="navbar-brand" href="#">SecByShresth</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
+      <i class="fas fa-bars" style="color: var(--text-primary);"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navCollapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#connect">Connect</a></li>
+      </ul>
     </div>
+  </div>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-    <div class="container hero-content">
-        <h1>Shresth Paul</h1>
-        <p class="lead">Senior Cybersecurity Analyst | Linux Expert | Open-Source Advocate</p>
-        <p class="lead">For detailed work experience, please check my <a href="https://www.linkedin.com/in/shresth-paul-55310b26a/" target="_blank" style="color: var(--accent-primary); font-weight:500;">LinkedIn Profile</a>.</p>
-        <div>
-            <a href="#projects" class="btn btn-primary me-3">View Projects</a>
-            <a href="#connect" class="btn btn-outline-primary">Get In Touch</a>
-        </div>
-        <div class="hero-stats">
-            <div class="stat">
-                <div class="stat-number">7+</div>
-                <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">20+</div>
-                <div class="stat-label">Projects</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Secure</div>
-            </div>
-        </div>
+  <div class="container hero-content">
+    <h1>Shresth Paul</h1>
+    <p class="lead">Senior Cybersecurity Analyst | Linux Expert | Open-Source Advocate</p>
+    <p class="lead">For detailed work experience, please check my <a href="https://www.linkedin.com/in/shresth-paul-55310b26a/" target="_blank" style="color: var(--accent-primary); font-weight:500;">LinkedIn Profile</a>.</p>
+    <div>
+      <a href="#projects" class="btn btn-primary me-3">View Projects</a>
+      <a href="#connect" class="btn btn-outline-primary">Get In Touch</a>
     </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">7+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Secure</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- About -->
 <section id="about">
-    <div class="container">
-        <h2 class="section-title">About</h2>
-        <p class="about-text">I am a cybersecurity professional who thrives at the intersection of hands-on defense and strategic innovation. Over the past six years, I’ve evolved from an IT Analyst to a Senior Analyst specializing in threat hunting, SIEM/EDR engineering, and security automation. <br></br> I don’t just monitor logs — I actively search for adversaries, design tools to detect and mitigate threats, and build systems that strengthen enterprise security from the ground up. From developing a production-ready CTI dashboard to automating complex forensic processes, my work is driven by a single principle: true security is a product of relentless innovation and proactive action.<br></br> Recognized with the Torchbearer Award for outstanding contributions, I’m passionate about creating solutions that not only address today’s threats but anticipate tomorrow’s challenges. My mission is simple: to make digital environments resilient, adaptive, and secure — and to continuously push the boundaries of what’s possible in cybersecurity.</p>
-        <div class="skills">
-            <span class="skill">Cybersecurity</span>
-            <span class="skill">Linux Administration</span>
-            <span class="skill">Python Automation</span>
-            <span class="skill">SIEM Management</span>
-            <span class="skill">Threat Hunting</span>
-            <span class="skill">Incident Response</span>
-            <span class="skill">Digital Forensics</span>
-            <span class="skill">Vulnerability Assessment</span>
-        </div>
+  <div class="container">
+    <h2 class="section-title">About</h2>
+    <p class="about-text">I am a cybersecurity professional who thrives at the intersection of hands-on defense and strategic innovation. Over the past six years, I've evolved from an IT Analyst to a Senior Analyst specializing in threat hunting, SIEM/EDR engineering, and security automation. <br></br> I don't just monitor logs — I actively search for adversaries, design tools to detect and mitigate threats, and build systems that strengthen enterprise security from the ground up. From developing a production-ready CTI dashboard to automating complex forensic processes, my work is driven by a single principle: true security is a product of relentless innovation and proactive action.<br></br> Recognized with the Torchbearer Award for outstanding contributions, I'm passionate about creating solutions that not only address today's threats but anticipate tomorrow's challenges. My mission is simple: to make digital environments resilient, adaptive, and secure — and to continuously push the boundaries of what's possible in cybersecurity.</p>
+    <div class="skills">
+      <span class="skill">Cybersecurity</span>
+      <span class="skill">Linux Administration</span>
+      <span class="skill">Python Automation</span>
+      <span class="skill">SIEM Management</span>
+      <span class="skill">Threat Hunting</span>
+      <span class="skill">Incident Response</span>
+      <span class="skill">Digital Forensics</span>
+      <span class="skill">Vulnerability Assessment</span>
     </div>
+  </div>
 </section>
 
 <!-- Career Snapshot -->
 <section id="experience">
-    <div class="container">
-        <h2 class="section-title">Career Snapshot</h2>
-        <div class="centered-timeline">
-            <div class="timeline-item-centered">
-                <div class="timeline-content">
-                    <h3>Senior Cybersecurity Analyst</h3>
-                    <span>2023 - Present</span>
-                    <p>Leading enterprise security operations, advanced threat hunting, and incident response coordination. Implementing security automation frameworks and mentoring junior analysts.</p>
-                </div>
-            </div>
-            <div class="timeline-item-centered">
-                <div class="timeline-content">
-                    <h3>Cybersecurity Analyst</h3>
-                    <span>2022 - 2023</span>
-                    <p>Managed SIEM operations, conducted vulnerability assessments, and developed custom security tools. Specialized in Linux-based security hardening and threat detection.</p>
-                </div>
-            </div>
-            <div class="timeline-item-centered">
-                <div class="timeline-content">
-                    <h3>IT Analyst L2</h3>
-                    <span>2020 - 2022</span>
-                    <p>Provided advanced technical support, system administration, and security monitoring. Transitioned focus towards cybersecurity and threat analysis.</p>
-                </div>
-            </div>
-            <div class="timeline-item-centered">
-                <div class="timeline-content">
-                    <h3>System Support Specialist</h3>
-                    <span>2018 - 2020</span>
-                    <p>Delivered comprehensive system support, user assistance, and infrastructure maintenance. Built foundation in enterprise IT operations and security practices.</p>
-                </div>
-            </div>
+  <div class="container">
+    <h2 class="section-title">Career Snapshot</h2>
+    <div class="centered-timeline">
+      <div class="timeline-item-centered">
+        <div class="timeline-content">
+          <h3>Senior Cybersecurity Analyst</h3>
+          <span>2023 - Present</span>
+          <p>Leading enterprise security operations, advanced threat hunting, and incident response coordination. Implementing security automation frameworks and mentoring junior analysts.</p>
         </div>
+      </div>
+      <div class="timeline-item-centered">
+        <div class="timeline-content">
+          <h3>Cybersecurity Analyst</h3>
+          <span>2022 - 2023</span>
+          <p>Managed SIEM operations, conducted vulnerability assessments, and developed custom security tools. Specialized in Linux-based security hardening and threat detection.</p>
+        </div>
+      </div>
+      <div class="timeline-item-centered">
+        <div class="timeline-content">
+          <h3>IT Analyst L2</h3>
+          <span>2020 - 2022</span>
+          <p>Provided advanced technical support, system administration, and security monitoring. Transitioned focus towards cybersecurity and threat analysis.</p>
+        </div>
+      </div>
+      <div class="timeline-item-centered">
+        <div class="timeline-content">
+          <h3>System Support Specialist</h3>
+          <span>2018 - 2020</span>
+          <p>Delivered comprehensive system support, user assistance, and infrastructure maintenance. Built foundation in enterprise IT operations and security practices.</p>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Projects -->
 <section id="projects">
-    <div class="container">
-        <h2 class="section-title">Personal Contributions</h2>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="contribution-card">
-                    <h3 class="contribution-title">
-                        <i class="fas fa-terminal contribution-icon"></i>
-                        Arch Linux AUR Maintainer
-                    </h3>
-                    <span class="contribution-status">Ongoing</span>
-                    <p class="contribution-description">
-                        Maintaining and updating community packages in the Arch User Repository, ensuring compatibility and security for open-source users worldwide. Contributing to the Linux ecosystem.
-                    </p>
-                    <div class="contribution-tags">
-                        <span class="contribution-tag">Linux</span>
-                        <span class="contribution-tag">Open Source</span>
-                        <span class="contribution-tag">Community</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="contribution-card">
-                    <h3 class="contribution-title">
-                        <i class="fas fa-shield-alt contribution-icon"></i>
-                        Threat Hunting Use Cases
-                    </h3>
-                    <span class="contribution-status">Ongoing</span>
-                    <p class="contribution-description">
-                        Building Sigma rules, detection logic, and hunting playbooks for modern cybersecurity threats and advanced persistent threat patterns. Enhancing enterprise security posture.
-                    </p>
-                    <div class="contribution-tags">
-                        <span class="contribution-tag">Cybersecurity</span>
-                        <span class="contribution-tag">Threat Hunting</span>
-                        <span class="contribution-tag">SIEM</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="contribution-card">
-                    <h3 class="contribution-title">
-                        <i class="fab fa-python contribution-icon"></i>
-                        Python Security Tools
-                    </h3>
-                    <span class="contribution-status">Ongoing</span>
-                    <p class="contribution-description">
-                        Developing automation scripts and vulnerability scanners using Python to enhance security operations and streamline incident response workflows. Open-source contributions.
-                    </p>
-                    <div class="contribution-tags">
-                        <span class="contribution-tag">Python</span>
-                        <span class="contribution-tag">Automation</span>
-                        <span class="contribution-tag">Security</span>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <h2 class="section-title">Personal Contributions</h2>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="contribution-card">
+          <h3 class="contribution-title">
+            <i class="fas fa-terminal contribution-icon"></i>
+            Arch Linux AUR Maintainer
+          </h3>
+          <span class="contribution-status">Ongoing</span>
+          <p class="contribution-description">
+            Maintaining and updating community packages in the Arch User Repository, ensuring compatibility and security for open-source users worldwide. Contributing to the Linux ecosystem.
+          </p>
+          <div class="contribution-tags">
+            <span class="contribution-tag">Linux</span>
+            <span class="contribution-tag">Open Source</span>
+            <span class="contribution-tag">Community</span>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="contribution-card">
+          <h3 class="contribution-title">
+            <i class="fas fa-shield-alt contribution-icon"></i>
+            Threat Hunting Use Cases
+          </h3>
+          <span class="contribution-status">Ongoing</span>
+          <p class="contribution-description">
+            Building Sigma rules, detection logic, and hunting playbooks for modern cybersecurity threats and advanced persistent threat patterns. Enhancing enterprise security posture.
+          </p>
+          <div class="contribution-tags">
+            <span class="contribution-tag">Cybersecurity</span>
+            <span class="contribution-tag">Threat Hunting</span>
+            <span class="contribution-tag">SIEM</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="contribution-card">
+          <h3 class="contribution-title">
+            <i class="fab fa-python contribution-icon"></i>
+            Python Security Tools
+          </h3>
+          <span class="contribution-status">Ongoing</span>
+          <p class="contribution-description">
+            Developing automation scripts and vulnerability scanners using Python to enhance security operations and streamline incident response workflows. Open-source contributions.
+          </p>
+          <div class="contribution-tags">
+            <span class="contribution-tag">Python</span>
+            <span class="contribution-tag">Automation</span>
+            <span class="contribution-tag">Security</span>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Blog -->
 <section id="blog">
-    <div class="container">
-        <h2 class="section-title">Latest Articles</h2>
-        <div class="row g-4">
+  <div class="container">
+    <h2 class="section-title">Latest Articles</h2>
+    <div class="row g-4">
 
-            <!-- Article 1 -->
-            <div class="col-md-6">
-                <div class="blog-card">
-                    <h3 class="blog-title">Maintaining AUR Packages: Updating python-simple-term-menu</h3>
-                    <p class="blog-meta">Published September 2025</p>
-                    <p class="blog-description">
-                        Updated the python-simple-term-menu package on Arch Linux AUR with the latest release, refreshed PKGBUILD & checksums, and tested for smooth installation.
-                    </p>
-                    <div class="blog-actions">
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="https://medium.com/@shresthpaul133/maintaining-arch-linux-aur-packages-updating-python-simple-term-menu-to-the-latest-release-85ce531d6227" class="btn btn-outline-primary" target="_blank">Medium</a>
-                            <a href="https://dev.to/secbyshresth/maintaining-arch-linux-aur-packages-updating-python-simple-term-menu-to-the-latest-release-5b73" class="btn btn-outline-primary" target="_blank">Dev.to</a>
-                            <!-- Optional GitHub button: uncomment below if you want to show GitHub link in future -->
-                            <!-- <a href="https://github.com/shresthpaul133" class="btn btn-outline-primary" target="_blank">GitHub</a> -->
-                        </div>
-                    </div>
-                </div>
+      <!-- Article 1 -->
+      <div class="col-md-6">
+        <div class="blog-card">
+          <h3 class="blog-title">Building a One-Click Windows Event Log Monitoring Stack with ELK + Grafana</h3>
+          <p class="blog-meta">Published September 2025</p>
+          <p class="blog-description">Guide to building a one-click Windows Event Log monitoring stack with ELK and Grafana, including Winlogbeat setup.</p>
+          <div class="blog-actions">
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://medium.com/@shresthpaul133/building-a-one-click-windows-event-log-monitoring-stack-with-elk-grafana-7a35fff2bf96" class="btn btn-outline-primary" target="_blank">Medium</a>
+              <a href="https://dev.to/secbyshresth/building-a-one-click-windows-event-log-monitoring-stack-with-elk-grafana-4gmp" class="btn btn-outline-primary" target="_blank">Dev.to</a>
+              <a href="https://github.com/SecByShresth/Windows-ELK-Monitoring-Stack" class="btn btn-outline-primary" target="_blank">GitHub</a>
             </div>
-
-
-            <!-- Article 2 -->
-            <div class="col-md-6">
-                <div class="blog-card">
-                    <h3 class="blog-title">A Small Contribution to the Arch Community: Updating the cleanpy AUR Package</h3>
-                    <p class="blog-meta">Published September 2025</p>
-                    <p class="blog-description">
-                        Shared insights on maintaining AUR packages and contributing to the Arch Linux ecosystem.
-                    </p>
-                    <div class="blog-actions">
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="https://medium.com/@shresthpaul133" class="btn btn-outline-primary" target="_blank">Medium</a>
-                            <a href="https://dev.to/secbyshresth" class="btn btn-outline-primary" target="_blank">Dev.to</a>
-                            <!-- Optional GitHub button: uncomment below if you want to show GitHub link in future -->
-                            <!-- <a href="https://github.com/shresthpaul133" class="btn btn-outline-primary" target="_blank">GitHub</a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Article 2 -->
-            <div class="col-md-6">
-                <div class="blog-card">
-                    <h3 class="blog-title">How I Updated an Arch Linux AUR Package (PySpread Example)</h3>
-                    <p class="blog-meta">Published September 2025</p>
-                    <p class="blog-description">
-                        I recently updated the Pyspread AUR package to version 2.4, walking through the process of modifying the PKGBUILD, refreshing checksums, testing locally, and pushing changes upstream. While simple, this type of maintenance is vital — it keeps the Arch Linux ecosystem reliable, secure, and up to date for end users.                    </p>
-                    <div class="blog-actions">
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="https://medium.com/@shresthpaul133" class="btn btn-outline-primary" target="_blank">Medium</a>
-                            <a href="https://dev.to/secbyshresth" class="btn btn-outline-primary" target="_blank">Dev.to</a>
-                            <!-- Optional GitHub button: uncomment below if you want to show GitHub link in future -->
-                            <!-- <a href="https://github.com/shresthpaul133" class="btn btn-outline-primary" target="_blank">GitHub</a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Article 3 -->
-            <div class="col-md-6">
-                <div class="blog-card">
-                    <h3 class="blog-title">Installed Arch Linux — Next Stop: Contributing Back 🚀</h3>
-                    <p class="blog-meta">Published September 2025</p>
-                    <p class="blog-description">
-                        Documented my first full Arch Linux installation from scratch, highlighting lessons on partitions, systemd, networking, and pacman. Beyond the setup, I'm now exploring ways to contribute back to the Arch community through docs, scripts, and tooling — turning the learning curve into an opportunity to give back.                    </p>
-                    <div class="blog-actions">
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="https://medium.com/@shresthpaul133" class="btn btn-outline-primary" target="_blank">Medium</a>
-                            <a href="https://dev.to/secbyshresth" class="btn btn-outline-primary" target="_blank">Dev.to</a>
-                            <!-- Optional GitHub button: uncomment below if you want to show GitHub link in future -->
-                            <!-- <a href="https://github.com/shresthpaul133" class="btn btn-outline-primary" target="_blank">GitHub</a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Article 4 -->
-            <div class="col-md-6">
-                <div class="blog-card">
-                    <h3 class="blog-title">Building an Ephemeral Email Header & Attachment Analyzer (Open Source Project)</h3>
-                    <p class="blog-meta">Published August 2025</p>
-                    <p class="blog-description">
-                        Developed an Ephemeral Email Analyzer to help security teams detect phishing attempts. It parses headers (SPF, DKIM, DMARC), checks domains and IPs against threat intel, scans attachments with YARA, and streams results in real time — all stored ephemerally for privacy. Built with FastAPI, React, and YARA, it's designed for practical use in modern email security operations.                    </p>
-                    <div class="blog-actions">
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="https://medium.com/@shresthpaul133" class="btn btn-outline-primary" target="_blank">Medium</a>
-                            <a href="https://dev.to/secbyshresth" class="btn btn-outline-primary" target="_blank">Dev.to</a>
-                            <!-- Optional GitHub button: uncomment below if you want to show GitHub link in future -->
-                            <a href="https://github.com/SecByShresth/Ephemeral-Email-Analyzer" class="btn btn-outline-primary" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Article 5 -->
-            <div class="col-md-6">
-                <div class="blog-card">
-                    <h3 class="blog-title">🛡️ Introducing Threat Intelligence Enrichment — A Powerful Web-Based Threat Intelligence Tool</h3>
-                    <p class="blog-meta">Published August 2025</p>
-                    <p class="blog-description">
-                        Threat Intelligence Enrichment – A streamlined, open-source dashboard for security analysts, incident responders, and IT admins to analyze IPs and domains instantly. Features WHOIS lookups, geolocation, DNS & SSL checks, and threat reputation scoring via AbuseIPDB & VirusTotal. Real-time processing, executive-ready UI, and secure design make threat analysis faster, cleaner, and more reliable.                    </p>
-                    <div class="blog-actions">
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="https://medium.com/@shresthpaul133" class="btn btn-outline-primary" target="_blank">Medium</a>
-                            <a href="https://dev.to/secbyshresth" class="btn btn-outline-primary" target="_blank">Dev.to</a>
-                            <!-- Optional GitHub button: uncomment below if you want to show GitHub link in future -->
-                            <a href="https://github.com/SecByShresth/Threat-Intelligence-Enrichment" class="btn btn-outline-primary" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="col-md-6">
+        <div class="blog-card">
+          <h3 class="blog-title">Maintaining AUR Packages: Updating python-simple-term-menu</h3>
+          <p class="blog-meta">Published September 2025</p>
+          <p class="blog-description">
+            Updated the python-simple-term-menu package on Arch Linux AUR with the latest release, refreshed PKGBUILD & checksums, and tested for smooth installation.
+          </p>
+          <div class="blog-actions">
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://medium.com/@shresthpaul133/maintaining-arch-linux-aur-packages-updating-python-simple-term-menu-to-the-latest-release-85ce531d6227" class="btn btn-outline-primary" target="_blank">Medium</a>
+              <a href="https://dev.to/secbyshresth/maintaining-arch-linux-aur-packages-updating-python-simple-term-menu-to-the-latest-release-5b73" class="btn btn-outline-primary" target="_blank">Dev.to</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="col-md-6">
+        <div class="blog-card">
+          <h3 class="blog-title">A Small Contribution to the Arch Community: Updating the cleanpy AUR Package</h3>
+          <p class="blog-meta">Published September 2025</p>
+          <p class="blog-description">
+            Shared insights on maintaining AUR packages and contributing to the Arch Linux ecosystem.
+          </p>
+          <div class="blog-actions">
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://medium.com/@shresthpaul133" class="btn btn-outline-primary" target="_blank">Medium</a>
+              <a href="https://dev.to/secbyshresth" class="btn btn-outline-primary" target="_blank">Dev.to</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 4 -->
+      <div class="col-md-6">
+        <div class="blog-card">
+          <h3 class="blog-title">How I Updated an Arch Linux AUR Package (PySpread Example)</h3>
+          <p class="blog-meta">Published September 2025</p>
+          <p class="blog-description">
+            I recently updated the Pyspread AUR package to version 2.4, walking through the process of modifying the PKGBUILD, refreshing checksums, testing locally, and pushing changes upstream. While simple, this type of maintenance is vital — it keeps the Arch Linux ecosystem reliable, secure, and up to date for end users.
+          </p>
+          <div class="blog-actions">
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://medium.com/@shresthpaul133" class="btn btn-outline-primary" target="_blank">Medium</a>
+              <a href="https://dev.to/secbyshresth" class="btn btn-outline-primary" target="_blank">Dev.to</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 5 -->
+      <div class="col-md-6">
+        <div class="blog-card">
+          <h3 class="blog-title">Installed Arch Linux — Next Stop: Contributing Back</h3>
+          <p class="blog-meta">Published September 2025</p>
+          <p class="blog-description">
+            Documented my first full Arch Linux installation from scratch, highlighting lessons on partitions, systemd, networking, and pacman. Beyond the setup, I'm now exploring ways to contribute back to the Arch community through docs, scripts, and tooling — turning the learning curve into an opportunity to give back.
+          </p>
+          <div class="blog-actions">
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://medium.com/@shresthpaul133" class="btn btn-outline-primary" target="_blank">Medium</a>
+              <a href="https://dev.to/secbyshresth" class="btn btn-outline-primary" target="_blank">Dev.to</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 6 -->
+      <div class="col-md-6">
+        <div class="blog-card">
+          <h3 class="blog-title">Building an Ephemeral Email Header & Attachment Analyzer (Open Source Project)</h3>
+          <p class="blog-meta">Published August 2025</p>
+          <p class="blog-description">
+            Developed an Ephemeral Email Analyzer to help security teams detect phishing attempts. It parses headers (SPF, DKIM, DMARC), checks domains and IPs against threat intel, scans attachments with YARA, and streams results in real time — all stored ephemerally for privacy. Built with FastAPI, React, and YARA, it's designed for practical use in modern email security operations.
+          </p>
+          <div class="blog-actions">
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://medium.com/@shresthpaul133" class="btn btn-outline-primary" target="_blank">Medium</a>
+              <a href="https://dev.to/secbyshresth" class="btn btn-outline-primary" target="_blank">Dev.to</a>
+              <a href="https://github.com/SecByShresth/Ephemeral-Email-Analyzer" class="btn btn-outline-primary" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 7 -->
+      <div class="col-md-6">
+        <div class="blog-card">
+          <h3 class="blog-title">Introducing Threat Intelligence Enrichment — A Powerful Web-Based Threat Intelligence Tool</h3>
+          <p class="blog-meta">Published August 2025</p>
+          <p class="blog-description">
+            Threat Intelligence Enrichment – A streamlined, open-source dashboard for security analysts, incident responders, and IT admins to analyze IPs and domains instantly. Features WHOIS lookups, geolocation, DNS & SSL checks, and threat reputation scoring via AbuseIPDB & VirusTotal. Real-time processing, executive-ready UI, and secure design make threat analysis faster, cleaner, and more reliable.
+          </p>
+          <div class="blog-actions">
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://medium.com/@shresthpaul133" class="btn btn-outline-primary" target="_blank">Medium</a>
+              <a href="https://dev.to/secbyshresth" class="btn btn-outline-primary" target="_blank">Dev.to</a>
+              <a href="https://github.com/SecByShresth/Threat-Intelligence-Enrichment" class="btn btn-outline-primary" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Connect -->
 <section id="connect">
-    <div class="container">
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="connect-text">
-            Interested in cybersecurity collaboration, Linux expertise, or open-source security projects? Let's discuss opportunities.
-            <br><br>
-            Or, if you prefer the dev way: feel free to <strong>raise a pull request</strong> at my GitHub 😉
-        </p>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/shresth-paul-55310b26a/" class="social-link" target="_blank"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
-            <a href="https://github.com/SecByShresth" class="social-link" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a>
-            <a href="https://medium.com/@shresthpaul133" class="social-link" target="_blank"><i class="fab fa-medium me-2"></i>Medium</a>
-            <a href="https://dev.to/secbyshresth" class="social-link" target="_blank"><i class="fab fa-dev me-2"></i>Dev.to</a>
-            <a href="https://aur.archlinux.org/packages?O=0&SeB=M&K=SecByShresth&outdated=&SB=p&SO=d&PP=50&submit=Go" class="social-link" target="_blank"><i class="fas fa-terminal me-2"></i>AUR Profile</a>
-        </div>
+  <div class="container">
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="connect-text">
+      Interested in cybersecurity collaboration, Linux expertise, or open-source security projects? Let's discuss opportunities.
+      <br><br>
+      Or, if you prefer the dev way: feel free to <strong>raise a pull request</strong> at my GitHub 😉
+    </p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/shresth-paul-55310b26a/" class="social-link" target="_blank"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+      <a href="https://github.com/SecByShresth" class="social-link" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a>
+      <a href="https://medium.com/@shresthpaul133" class="social-link" target="_blank"><i class="fab fa-medium me-2"></i>Medium</a>
+      <a href="https://dev.to/secbyshresth" class="social-link" target="_blank"><i class="fab fa-dev me-2"></i>Dev.to</a>
+      <a href="https://aur.archlinux.org/packages?O=0&SeB=M&K=SecByShresth&outdated=&SB=p&SO=d&PP=50&submit=Go" class="social-link" target="_blank"><i class="fas fa-terminal me-2"></i>AUR Profile</a>
     </div>
+  </div>
 </section>
-
 
 <!-- Footer -->
 <footer>
-    <div class="container">
-        <p>&copy; 2025 Shresth Paul. Engineered with security and precision in mind.</p>
-    </div>
+  <div class="container">
+    <p>&copy; 2025 Shresth Paul. Engineered with security and precision in mind.</p>
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    function openModal(modalId) {
-        document.getElementById(modalId).style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
+  function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
 
-    function closeModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
+  function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
 
-    // Close modal when clicking outside of it
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal-overlay')) {
-            event.target.style.display = 'none';
-            document.body.style.overflow = 'auto';
+  // Close modal when clicking outside of it
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal-overlay')) {
+      event.target.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  // Close modal on escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      const modals = document.querySelectorAll('.modal-overlay');
+      modals.forEach(modal => {
+        if (modal.style.display === 'block') {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
         }
+      });
     }
-
-    // Close modal on escape key
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            const modals = document.querySelectorAll('.modal-overlay');
-            modals.forEach(modal => {
-                if (modal.style.display === 'block') {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        }
-    });
+  });
 </script>
 </body>
 </html>
