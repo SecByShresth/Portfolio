@@ -7,7 +7,7 @@ on:
   workflow_dispatch: # Allow manual trigger
 
 permissions:
-  contents: write  # Give write permissions to push changes
+  contents: write
 
 jobs:
   update-articles:
@@ -15,9 +15,7 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/checkout@v4
         
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -32,9 +30,12 @@ jobs:
         run: |
           python scripts/fetch_articles.py
           
-      - name: Commit and push if changes
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add data/articles.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-update blog articles" && git push)
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: '🤖 Auto-update blog articles'
+          file_pattern: 'data/articles.json'
+          commit_user_name: 'github-actions[bot]'
+          commit_user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          commit_author: 'github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>'
+          skip_dirty_check: false
