@@ -9,6 +9,7 @@ import os
 import feedparser
 import requests
 from datetime import datetime
+from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
 
 # Configuration
@@ -30,6 +31,21 @@ def clean_html(html_text):
         text = text[:197] + "..."
     return text
 
+def parse_date(date_string):
+    """Parse RSS date string to ISO format"""
+    try:
+        # Try parsing RFC 2822 format (used by RSS feeds)
+        dt = parsedate_to_datetime(date_string)
+        return dt.isoformat()
+    except:
+        try:
+            # Try ISO format
+            dt = datetime.fromisoformat(date_string.replace('Z', '+00:00'))
+            return dt.isoformat()
+        except:
+            # Return current time if parsing fails
+            return datetime.now().isoformat()
+
 def fetch_medium_articles():
     """Fetch articles from Medium RSS feed"""
     articles = []
@@ -44,7 +60,7 @@ def fetch_medium_articles():
                 'url': entry.link,
                 'platform': 'medium',
                 'excerpt': clean_html(content),
-                'published': entry.get('published', ''),
+                'published': parse_date(entry.get('published', '')),
                 'updated_at': datetime.now().isoformat()
             }
             articles.append(article)
@@ -67,7 +83,7 @@ def fetch_devto_articles():
                 'url': entry.link,
                 'platform': 'devto',
                 'excerpt': clean_html(content),
-                'published': entry.get('published', ''),
+                'published': parse_date(entry.get('published', '')),
                 'updated_at': datetime.now().isoformat()
             }
             articles.append(article)
@@ -89,13 +105,13 @@ def main():
     # Combine and sort by published date (newest first)
     all_articles = medium_articles + devto_articles
     
-    # Sort by published date if available
+    # Sort by published date
     try:
         all_articles.sort(
-            key=lambda x: datetime.fromisoformat(x['published'].replace('Z', '+00:00')) 
-            if x.get('published') else datetime.min,
+            key=lambda x: datetime.fromisoformat(x['published']),
             reverse=True
         )
+        print(f"✓ Sorted articles by date")
     except Exception as e:
         print(f"⚠ Could not sort by date: {e}")
     
