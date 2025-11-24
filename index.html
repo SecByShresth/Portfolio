@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Shresth Paul - Security Automation, Threat Detection & DFIR Engineer">
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
   <title>Shresth Paul | Security Engineer</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -149,6 +149,8 @@
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .btn {
@@ -177,6 +179,9 @@
       background: var(--surface);
       color: var(--text);
       border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .btn-secondary:hover {
@@ -499,6 +504,16 @@
       border-color: rgba(96, 165, 250, 0.3);
     }
 
+    /* About Section */
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      line-height: 1.8;
+    }
+
     /* Social Links */
     .social-links {
       display: flex;
@@ -578,10 +593,6 @@
         grid-template-columns: 1fr;
       }
 
-      .blog-grid {
-        grid-template-columns: 1fr;
-      }
-
       section {
         padding: 3rem 1.5rem;
       }
@@ -643,6 +654,18 @@
         <a href="#tools" class="btn btn-primary">View My Tools</a>
         <a href="https://github.com/SecByShresth" class="btn btn-secondary" target="_blank">
           <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/shresth-paul-55310b26a/" class="btn btn-secondary" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://medium.com/@shresthpaul133" class="btn btn-secondary" target="_blank">
+          <i class="fab fa-medium"></i> Medium
+        </a>
+        <a href="https://dev.to/secbyshresth" class="btn btn-secondary" target="_blank">
+          <i class="fab fa-dev"></i> Dev.to
+        </a>
+        <a href="https://aur.archlinux.org/packages?O=0&SeB=M&K=SecByShresth&outdated=&SB=p&SO=d&PP=50&submit=Go" class="btn btn-secondary" target="_blank">
+          <i class="fas fa-terminal"></i> AUR
         </a>
       </div>
     </div>
@@ -787,17 +810,6 @@
     </div>
   </section>
 
-  <!-- Blog Section -->
-  <section id="blog">
-    <h2 class="section-title">Latest Articles</h2>
-    <p class="section-subtitle">Automatically updated from Medium and Dev.to</p>
-    <div id="blogContainer" class="blog-grid">
-      <div class="loading">
-        <i class="fas fa-spinner fa-spin"></i> Loading articles...
-      </div>
-    </div>
-  </section>
-
   <!-- Contact Section -->
   <section id="contact">
     <h2 class="section-title">Let's Connect</h2>
@@ -857,96 +869,6 @@
         document.getElementById('navLinks').classList.remove('active');
       });
     });
-
-    // Load Blog Articles
-    async function loadArticles() {
-      const container = document.getElementById('blogContainer');
-      
-      try {
-        // Try to load from local JSON file first
-        const response = await fetch('./data/articles.json');
-        
-        if (response.ok) {
-          const articles = await response.json();
-          displayArticles(articles);
-        } else {
-          // Fallback to demo articles if JSON doesn't exist yet
-          displayDemoArticles();
-        }
-      } catch (error) {
-        console.log('Loading demo articles:', error);
-        displayDemoArticles();
-      }
-    }
-
-    function displayArticles(articles) {
-      const container = document.getElementById('blogContainer');
-      
-      if (!articles || articles.length === 0) {
-        container.innerHTML = '<div class="loading">No articles found. Check back soon!</div>';
-        return;
-      }
-
-      container.innerHTML = articles.slice(0, 6).map(article => `
-        <div class="blog-card">
-          <div class="blog-platform">
-            <i class="fab fa-${article.platform === 'medium' ? 'medium' : 'dev'}"></i>
-            ${article.platform === 'medium' ? 'Medium' : 'Dev.to'}
-          </div>
-          <h3>${article.title}</h3>
-          <p class="blog-excerpt">${article.excerpt || 'Read the full article for more details.'}</p>
-          <a href="${article.url}" class="blog-link" target="_blank">
-            Read More <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      `).join('');
-    }
-
-    function displayDemoArticles() {
-      const demoArticles = [
-        {
-          title: "Maintaining Arch Linux AUR Packages: Update for python-zfec",
-          platform: "medium",
-          excerpt: "Updated the python-zfec package on Arch Linux AUR to the latest version with improved Python packaging.",
-          url: "https://medium.com/@shresthpaul133"
-        },
-        {
-          title: "Building a One-Click Windows Event Log Monitoring Stack",
-          platform: "dev",
-          excerpt: "Guide to building a one-click Windows Event Log monitoring stack with ELK and Grafana.",
-          url: "https://dev.to/secbyshresth"
-        },
-        {
-          title: "Ephemeral Email Header & Attachment Analyzer",
-          platform: "medium",
-          excerpt: "Developed an Ephemeral Email Analyzer to help security teams detect phishing attempts.",
-          url: "https://medium.com/@shresthpaul133"
-        },
-        {
-          title: "Threat Intelligence Enrichment Tool",
-          platform: "dev",
-          excerpt: "A streamlined, open-source dashboard for security analysts to analyze IPs and domains instantly.",
-          url: "https://dev.to/secbyshresth"
-        },
-        {
-          title: "How I Updated an Arch Linux AUR Package",
-          platform: "medium",
-          excerpt: "Walking through the process of maintaining AUR packages and contributing to the Arch Linux ecosystem.",
-          url: "https://medium.com/@shresthpaul133"
-        },
-        {
-          title: "Installed Arch Linux — Next Stop: Contributing Back",
-          platform: "dev",
-          excerpt: "Documented my first full Arch Linux installation and exploring ways to contribute back.",
-          url: "https://dev.to/secbyshresth"
-        }
-      ];
-      
-      displayArticles(demoArticles);
-    }
-
-    // Load articles on page load
-    loadArticles();
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
