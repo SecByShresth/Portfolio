@@ -7,9 +7,7 @@ and save them to data/articles.json
 import json
 import os
 import feedparser
-import requests
 from datetime import datetime
-from email.utils import parsedate_to_datetime
 from bs4 import BeautifulSoup
 
 # Configuration
@@ -31,20 +29,19 @@ def clean_html(html_text):
         text = text[:197] + "..."
     return text
 
-def parse_date(date_string):
-    """Parse RSS date string to ISO format"""
+def parse_date(entry):
+    """Parse RSS date to timestamp for sorting"""
     try:
-        # Try parsing RFC 2822 format (used by RSS feeds)
-        dt = parsedate_to_datetime(date_string)
-        return dt.isoformat()
-    except:
-        try:
-            # Try ISO format
-            dt = datetime.fromisoformat(date_string.replace('Z', '+00:00'))
-            return dt.isoformat()
-        except:
-            # Return current time if parsing fails
-            return datetime.now().isoformat()
+        # feedparser already parses the date into a time struct
+        if hasattr(entry, 'published_parsed') and entry.published_parsed:
+            return datetime(*entry.published_parsed[:6])
+        elif hasattr(entry, 'updated_parsed') and entry.updated_parsed:
+            return datetime(*entry.updated_parsed[:6])
+        else:
+            return datetime.min
+    except Exception as e:
+        print(f"⚠ Date parsing warning: {e}")
+        return datetime.min
 
 def fetch_medium_articles():
     """Fetch articles from Medium RSS feed"""
@@ -55,13 +52,17 @@ def fetch_medium_articles():
             # Get content or summary
             content = entry.get('content', [{}])[0].get('value', '') or entry.get('summary', '')
             
+            # Get published date
+            pub_date = parse_date(entry)
+            
             article = {
                 'title': entry.title,
                 'url': entry.link,
                 'platform': 'medium',
                 'excerpt': clean_html(content),
-                'published': parse_date(entry.get('published', '')),
-                'updated_at': datetime.now().isoformat()
+                'published': pub_date.isoformat() if pub_date != datetime.min else '',
+                'updated_at': datetime.now().isoformat(),
+                '_sort_date': pub_date  # For sorting only
             }
             articles.append(article)
         print(f"✓ Fetched {len(articles)} articles from Medium")
@@ -78,13 +79,17 @@ def fetch_devto_articles():
             # Get description or content
             content = entry.get('description', '') or entry.get('summary', '')
             
+            # Get published date
+            pub_date = parse_date(entry)
+            
             article = {
                 'title': entry.title,
                 'url': entry.link,
                 'platform': 'devto',
                 'excerpt': clean_html(content),
-                'published': parse_date(entry.get('published', '')),
-                'updated_at': datetime.now().isoformat()
+                'published': pub_date.isoformat() if pub_date != datetime.min else '',
+                'updated_at': datetime.now().isoformat(),
+                '_sort_date': pub_date  # For sorting only
             }
             articles.append(article)
         print(f"✓ Fetched {len(articles)} articles from Dev.to")
@@ -105,15 +110,14 @@ def main():
     # Combine and sort by published date (newest first)
     all_articles = medium_articles + devto_articles
     
-    # Sort by published date
-    try:
-        all_articles.sort(
-            key=lambda x: datetime.fromisoformat(x['published']),
-            reverse=True
-        )
-        print(f"✓ Sorted articles by date")
-    except Exception as e:
-        print(f"⚠ Could not sort by date: {e}")
+    # Sort by published date using the _sort_date field
+    all_articles.sort(key=lambda x: x.get('_sort_date', datetime.min), reverse=True)
+    
+    # Remove the temporary _sort_date field before saving
+    for article in all_articles:
+        article.pop('_sort_date', None)
+    
+    print(f"✓ Sorted articles by date")
     
     # Save to JSON file
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
