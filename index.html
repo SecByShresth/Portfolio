@@ -44,7 +44,6 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    /* Navbar */
     .navbar {
       position: fixed;
       top: 0;
@@ -117,7 +116,6 @@
       padding: 0.5rem;
     }
 
-    /* Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -189,7 +187,6 @@
       transform: translateY(-2px);
     }
 
-    /* Section Styles */
     section {
       max-width: 1200px;
       margin: 0 auto;
@@ -211,7 +208,6 @@
       font-size: 1.1rem;
     }
 
-    /* Tools Grid */
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -293,14 +289,6 @@
       gap: 0.75rem;
     }
 
-    .loading {
-      text-align: center;
-      color: var(--text-secondary);
-      padding: 3rem;
-      font-size: 1.1rem;
-    }
-
-    /* About Section */
     .about-content {
       max-width: 800px;
       margin: 0 auto;
@@ -310,7 +298,6 @@
       line-height: 1.8;
     }
 
-    /* Experience Timeline */
     .experience-timeline {
       max-width: 900px;
       margin: 0 auto;
@@ -445,17 +432,6 @@
       border-color: rgba(96, 165, 250, 0.3);
     }
 
-    /* About Section */
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 1.15rem;
-      line-height: 1.8;
-    }
-
-    /* Social Links */
     .social-links {
       display: flex;
       justify-content: center;
@@ -485,7 +461,6 @@
       box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
     }
 
-    /* Footer */
     footer {
       background: var(--surface);
       border-top: 1px solid var(--border);
@@ -494,7 +469,6 @@
       color: var(--text-secondary);
     }
 
-    /* Mobile Responsive */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
@@ -566,7 +540,6 @@
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="#" class="nav-brand">SecByShresth</a>
@@ -585,7 +558,6 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
       <h1>Shresth Paul</h1>
@@ -611,7 +583,6 @@
     </div>
   </section>
 
-  <!-- About Section -->
   <section id="about">
     <h2 class="section-title">About Me</h2>
     <div class="about-content">
@@ -619,7 +590,6 @@
     </div>
   </section>
 
-  <!-- Experience Section -->
   <section id="experience">
     <h2 class="section-title">Experience</h2>
     <p class="section-subtitle">Building security solutions across enterprise environments</p>
@@ -703,17 +673,16 @@
     </div>
   </section>
 
-  <!-- Tools Section -->
   <section id="tools">
     <h2 class="section-title">Security Tools I've Built</h2>
     <p class="section-subtitle">Open-source security tools hosted on GitHub Pages, built with automation in mind</p>
     <div class="tools-grid">
       <div class="tool-card">
-        <div class="tool-icon"><i class="fas fa-shield-alt"></i></div>
-        <span class="tool-badge">Live Tool</span>
-        <h3>VulnFeed</h3>
-        <p>Real-time vulnerability intelligence feed aggregator for security researchers and analysts</p>
-        <a href="https://secbyshresth.github.io/VulnFeed/" class="tool-link" target="_blank">
+        <div class="tool-icon"><i class="fas fa-gem"></i></div>
+        <span class="tool-badge">Premium Tool</span>
+        <h3>Onyx Intelligence</h3>
+        <p>Premium vulnerability intelligence platform with OSV.dev integration, asset scanning, and glassmorphism UI</p>
+        <a href="https://secbyshresth.github.io/Onyx-Intelligence/" class="tool-link" target="_blank">
           Visit Tool <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -750,7 +719,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact">
     <h2 class="section-title">Let's Connect</h2>
     <p class="section-subtitle">Find me on these platforms</p>
@@ -773,13 +741,11 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Shresth Paul. Built with GitHub Pages.</p>
   </footer>
 
   <script>
-    // Theme Toggle
     function toggleTheme() {
       const html = document.documentElement;
       const currentTheme = html.getAttribute('data-theme');
@@ -791,26 +757,22 @@
       icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
 
-    // Load saved theme
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     if (savedTheme === 'dark') {
       document.querySelector('.theme-toggle i').className = 'fas fa-sun';
     }
 
-    // Mobile Menu Toggle
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
     }
 
-    // Close menu when clicking on a link
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('navLinks').classList.remove('active');
       });
     });
 
-    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -823,5 +785,3 @@
   </script>
 </body>
 </html>
-
-
